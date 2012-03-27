@@ -64,6 +64,8 @@ Build-Depends:
 Package: libav-tools
 Section: video
 Architecture: any
+Provides:
+ ffmpeg
 Replaces:
  ffmpeg (<< 4:0.8~),
  libavcodec-extra-53 (<< 4:0.6~),
@@ -88,7 +90,7 @@ Description: Multimedia player, server, encoder and transcoder
 Package: ffmpeg
 Section: oldlibs
 Priority: extra
-Architecture: all
+Architecture: any
 Depends:
  libav-tools,
  ${misc:Depends},
@@ -97,8 +99,9 @@ Description: Multimedia player, server, encoder and transcoder (transitional pac
  Libav is a complete, cross-platform solution to decode, encode, record,
  convert and stream audio and video.
  .
- This package is only used for transitional purposes and can be safely
- removed when no other packages depend on this package.
+ This package contains the deprecated ffmpeg program. This package also serves
+ as a transitional package to libav-tools. Users are advised to use avconv from
+ the libav-tools package instead of ffmpeg.
 
 Package: ffmpeg-dbg
 Section: oldlibs
@@ -116,13 +119,19 @@ Description: Debug symbols for Libav related packages (transitional package)
  Most people will not need this package. Please install it to produce useful
  stacktraces to help debugging the Libav libraries.
  .
- This package is only used for transitional purposes and can be safely
- removed.
+ This package contains the debug symbols for the deprecated ffmpeg program.
+ It also serves as a transitional package to libav-tools-dbg.
 
 Package: libav-dbg
 Section: debug
 Priority: extra
 Architecture: any
+Provides:
+ ffmpeg-dbg
+Replaces:
+ ffmpeg-dbg (<< 5:0.8.1-3)
+Breaks:
+ ffmpeg-dbg (<< 5:0.8.1-3)
 Depends:
  libav-tools (= ${binary:Version}),
  libavdevice53 (= ${binary:Version}),
