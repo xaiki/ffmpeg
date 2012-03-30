@@ -223,7 +223,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Conflicts:
+Provides:
  libavutil-extra-51
 Replaces:
  libavutil-extra-51
@@ -260,7 +260,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Conflicts:
+Provides:
  libavdevice-extra-53
 Replaces:
  libavdevice-extra-53
@@ -279,7 +279,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Conflicts:
+Provides:
  libavformat-extra-53
 Replaces:
  libavformat-extra-53
@@ -301,7 +301,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Conflicts:
+Provides:
  libavfilter-extra-2
 Replaces:
  libavfilter-extra-2
@@ -320,7 +320,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Conflicts:
+Provides:
  libpostproc-extra-52
 Replaces:
  libpostproc-extra-52
@@ -339,7 +339,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
-Conflicts:
+Provides:
  libswscale-extra-2
 Replaces:
  libswscale-extra-2
