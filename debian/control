@@ -243,6 +243,8 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends:
  ${misc:Depends},
  ${shlibs:Depends}
+Conflicts:
+ libavcodec-extra-53
 Breaks:
  libavcodec-extra-53 (<< 4:0.8.0.2)
 Description: Libav codec library
