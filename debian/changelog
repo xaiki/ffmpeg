@@ -1,8 +1,10 @@
-libav (5:0.8.1-4) UNRELEASED; urgency=low
+libav (5:0.8.1-4) unstable; urgency=low
 
-  * Prepare new upload.
+  * Use a Provides field to provide transitional packages instead of Conflicts.
+    (Closes: #666401)
+  * Have both libavcodec and libavcodec-extra package conflict with each other.
 
- -- Andres Mejia <amejia@debian.org>  Fri, 30 Mar 2012 09:57:46 -0400
+ -- Andres Mejia <amejia@debian.org>  Fri, 30 Mar 2012 10:15:50 -0400
 
 libav (5:0.8.1-3) unstable; urgency=low
 
