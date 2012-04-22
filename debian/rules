@@ -136,7 +136,7 @@ install-common: build $(DH_INSTALL_FILES)
 	debian/tmp/usr/bin/avconv -formats | tee formats.txt
 	env LD_LIBRARY_PATH="$(LD_LIBRARY_PATH):$(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)" \
 	debian/tmp/usr/bin/avconv -codecs | tee codecs.txt
-	dh_installdocs -plibavformat53 formats.txt
+	dh_installdocs -plibavformat53 formats-$(DEB_HOST_ARCH).txt
 	dh_installdocs -plibavcodec53 codecs.txt
 install-extra: build $(DH_INSTALL_FILES)
 	dh_testdir

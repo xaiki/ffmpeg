@@ -1,3 +1,9 @@
+libav (5:0.8.1-5) UNRELEASED; urgency=low
+
+  * Fix issue with file not being multiarch compatible. (Closes: #669988)
+
+ -- Andres Mejia <amejia@debian.org>  Sun, 22 Apr 2012 11:24:46 -0400
+
 libav (5:0.8.1-4) unstable; urgency=low
 
   * Use a Provides field to provide transitional packages instead of Conflicts.
