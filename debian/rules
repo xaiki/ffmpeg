@@ -133,7 +133,7 @@ install-common: build $(DH_INSTALL_FILES)
 	dh_strip $(addprefix -p,$(LIB_PKGS2)) --dbg-package=libav-regular-dbg
 	dh_strip -pffmpeg --dbg-package=ffmpeg-dbg
 	env LD_LIBRARY_PATH="$(LD_LIBRARY_PATH):$(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)" \
-	debian/tmp/usr/bin/avconv -formats | tee formats.txt
+	debian/tmp/usr/bin/avconv -formats | tee formats-$(DEB_HOST_ARCH).txt
 	env LD_LIBRARY_PATH="$(LD_LIBRARY_PATH):$(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)" \
 	debian/tmp/usr/bin/avconv -codecs | tee codecs.txt
 	dh_installdocs -plibavformat53 formats-$(DEB_HOST_ARCH).txt
