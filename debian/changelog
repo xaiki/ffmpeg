@@ -1,8 +1,12 @@
-libav (5:0.8.1-5) UNRELEASED; urgency=low
+libav (6:0.8.1-5) unstable; urgency=low
 
+  [ Andres Mejia ]
   * Fix issue with file not being multiarch compatible. (Closes: #669988)
 
- -- Andres Mejia <amejia@debian.org>  Sun, 22 Apr 2012 11:24:46 -0400
+  [ Reinhard Tartler ]
+  * Bump epoch to fix messed upload to unstable (Closes: #670762)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 29 Apr 2012 10:30:26 +0200
 
 libav (5:0.8.1-4) unstable; urgency=low
 
