@@ -1,3 +1,9 @@
+libav (6:0.8.1-7) UNRELEASED; urgency=low
+
+  * Fix build for hurd. Thanks to Samuel Thibault for patch. (Closes: #613034)
+
+ -- Andres Mejia <amejia@debian.org>  Tue, 01 May 2012 21:07:55 -0400
+
 libav (6:0.8.1-6) unstable; urgency=low
 
   * Fix epoch in strict internal dependencies. Closes: #670861
