@@ -2,8 +2,10 @@ libav (6:0.8.1-7) UNRELEASED; urgency=low
 
   * Fix build for hurd. Thanks to Samuel Thibault for patch. (Closes: #613034)
     (Closes: #671038)
+  * Properly migrate /etc/ffserver.conf to /etc/avserver.conf.
+    (Closes: #660786)
 
- -- Andres Mejia <amejia@debian.org>  Tue, 01 May 2012 21:09:40 -0400
+ -- Andres Mejia <amejia@debian.org>  Tue, 01 May 2012 21:27:43 -0400
 
 libav (6:0.8.1-6) unstable; urgency=low
 
