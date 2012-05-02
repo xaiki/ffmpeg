@@ -4,8 +4,9 @@ libav (6:0.8.1-7) unstable; urgency=low
     (Closes: #671038)
   * Properly migrate /etc/ffserver.conf to /etc/avserver.conf.
     (Closes: #660786)
+  * Renable opencv support.
 
- -- Andres Mejia <amejia@debian.org>  Tue, 01 May 2012 21:27:43 -0400
+ -- Andres Mejia <amejia@debian.org>  Tue, 01 May 2012 21:33:13 -0400
 
 libav (6:0.8.1-6) unstable; urgency=low
 
