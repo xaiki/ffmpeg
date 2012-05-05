@@ -1,3 +1,20 @@
+libav (6:0.8.2-1) unstable; urgency=low
+
+  * New upstream release:
+    - Several bugs and crashes have been fixed in the following codecs: AAC,
+      APE, H.263, H.264, Indeo 4, Mimic, MJPEG, Motion Pixels Video, RAW,
+      TTA, VC1, VQA, WMA Voice, vqavideo (CVE-2012-0947).
+    - Several bugs and crashes have been fixed in the following formats:
+      ASF, ID3v2, MOV, xWMA
+    - This release additionally updates the following codecs to the
+      bytestream2 API, and therefore benefit from additional overflow
+      checks: truemotion2, utvideo, vqavideo
+  * drop 02-fix-avpreset-extension.patch, applied upstream
+  * Revert "Revert "temporarily disable opencv to work around dependency troubles""
+    (Closes: #671302)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 05 May 2012 10:57:50 +0200
+
 libav (6:0.8.1-7) unstable; urgency=low
 
   * Fix build for hurd. Thanks to Samuel Thibault for patch. (Closes: #613034)
