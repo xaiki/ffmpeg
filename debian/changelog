@@ -10,8 +10,8 @@ libav (6:0.8.2-1) unstable; urgency=medium
       bytestream2 API, and therefore benefit from additional overflow
       checks: truemotion2, utvideo, vqavideo
   * drop 02-fix-avpreset-extension.patch, applied upstream
-  * Revert "Revert "temporarily disable opencv to work around dependency troubles""
-    (Closes: #671302)
+  * Revert "Revert "temporarily disable opencv to work around dependency
+           troubles"" (Closes: #671302)
   * Bumped urgency because of security issue.
 
  -- Reinhard Tartler <siretart@tauware.de>  Sat, 05 May 2012 11:08:44 +0200
