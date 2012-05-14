@@ -1,3 +1,9 @@
+libav (6:0.8.2-2) unstable; urgency=low
+
+  * 
+
+ -- Reinhard Tartler <siretart@tauware.de>  Mon, 14 May 2012 21:37:59 +0200
+
 libav (6:0.8.2-1) unstable; urgency=medium
 
   * New upstream release:
