@@ -175,29 +175,14 @@ binary-arch: build install
 	dh_fixperms
 	dh_strip
 
-# strict internal dependencies
 	for pkg in $(LIB_PKGS); do \
-	    dh_makeshlibs -p"$$pkg" -V"$$pkg (>= $(DEB_VERSION)), $$pkg (<< $(EPOCH)$(UPSTREAM_VERSION)-99)"; \
+	    dh_makeshlibs -p"$$pkg" -V"$$pkg (>= $(DEB_VERSION))"; \
 	done
 	for pkg in $(LIB_PKGS2); do \
 	    upkg=$$(echo "$$pkg" | sed -r 's/([0-9]+)$$/-extra-\1/'); \
-	    dh_makeshlibs -p"$$pkg" -V"$$pkg (>= $(DEB_VERSION)) | $$upkg (>= $(DEB_VERSION)), $$pkg (<< $(EPOCH)$(UPSTREAM_VERSION)-99) | $$upkg (<< $(EPOCH)$(UPSTREAM_VERSION)-99)"; \
+	    dh_makeshlibs -p"$$pkg" -V"$$pkg (>= $(DEB_VERSION)) | $$upkg (>= $(DEB_VERSION))"; \
 	done
-	env LD_LIBRARY_PATH="$(LD_LIBRARY_PATH):$(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)" \
-	dh_shlibdeps $(addprefix -N,$(LIB_EXTRA_PKGS)) $(addprefix -L,$(LIB_PKGS))
-	for pkg in $(LIB_EXTRA_PKGS); do \
-	    dh_makeshlibs -p"$$pkg" -V"$$pkg (>= $(DEB_VERSION)), $$pkg (<< $(EPOCH)$(UPSTREAM_VERSION)-99)"; \
-	done
-	env LD_LIBRARY_PATH="$(LD_LIBRARY_PATH):$(CURDIR)/debian/tmp/extra/usr/lib/$(DEB_HOST_MULTIARCH)" \
-	dh_shlibdeps $(addprefix -p,$(LIB_EXTRA_PKGS)) $(addprefix -L,$(LIB_EXTRA_PKGS))
-# target dependencies for external packages
-	for pkg in $(LIB_PKGS) $(LIB_EXTRA_PKGS); do \
-	    dh_makeshlibs -p"$$pkg" -V"$$pkg (>= $(SHLIBS_VERSION))"; \
-	done
-	for pkg in $(LIB_PKGS2); do \
-	    upkg=$$(echo "$$pkg" | sed -r 's/([0-9]+)$$/-extra-\1/'); \
-	    dh_makeshlibs -p"$$pkg" -V"$$pkg (>= $(SHLIBS_VERSION)) | $$upkg (>= $(SHLIBS_VERSION))"; \
-	done
+	dh_shlibdeps
 	dh_installdeb
 	dh_gencontrol -- -Vlib1394-dev="$(lib1394-dev)"
 	dh_md5sums
