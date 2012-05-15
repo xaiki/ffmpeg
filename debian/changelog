@@ -1,6 +1,7 @@
 libav (6:0.8.2-2) unstable; urgency=low
 
-  * 
+  * Revert "temporarily disable opencv to work around dependency troubles"
+  * Simplify internal dependencies (Closes: #672791)
 
  -- Reinhard Tartler <siretart@tauware.de>  Mon, 14 May 2012 21:37:59 +0200
 
