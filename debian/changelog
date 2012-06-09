@@ -1,3 +1,16 @@
+libav (6:0.8.3-1) unstable; urgency=medium
+
+  [ Andres Mejia ]
+  * Update libav-doc doc base. (Closes: #674139)
+
+  [ Reinhard Tartler ]
+  * New upstream release 0.8.3:
+    - Several bugs and crashes have been fixed in the following codecs: PNG,
+      Electronic Arts TQI, H.264 (CVE-2012-0851) and H.263 (CVE-2011-3937)
+  * Raising severity because of security issues.
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 09 Jun 2012 13:25:31 +0200
+
 libav (6:0.8.2-2) unstable; urgency=low
 
   * Revert "temporarily disable opencv to work around dependency troubles"
