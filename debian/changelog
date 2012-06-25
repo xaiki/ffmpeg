@@ -1,3 +1,12 @@
+libav (6:0.8.3-3) unstable; urgency=low
+
+  * Install the shared flavor last; the binaries from the optimized flavor(s)
+    would overwrite the ones from the shared baseline flavor causing SIGILL;
+    closes: #657885.
+  * control/Uploaders: update my email address
+
+ -- Loïc Minier <lool@debian.org>  Mon, 25 Jun 2012 21:21:24 +0200
+
 libav (6:0.8.3-2) unstable; urgency=low
 
   [ Fabian Greffrath ]
