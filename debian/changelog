@@ -1,3 +1,26 @@
+libav (6:0.8.3-2) unstable; urgency=low
+
+  [ Fabian Greffrath ]
+  * Clarify relations between libavcodec53 and libavcodec-extra-53
+    in debian/control.
+  * Use the cond_enable() macro for all additional features in debian/confflags.
+  * Tidy up and sort configuration flags.
+  * Add a debian/README.source file that describes how to rebuild libav
+    with a reduced feature set in order to avoid circular build-dependencies
+    for bootstrapping.
+  * Restrict Build-Depends to "yasm [any-amd64 any-i386]"
+    and explicitly disable it if not found.
+
+  [ Reinhard Tartler ]
+  * add patch from upstream to fix playback of Canon AVHCD movies.
+    (Fixes: LP: #937561)
+  * fix location in ffmpeg.NEWS file
+  * add dependency on libavcodec53 to libav-dbg
+  * add Pre-Depend on dpkg to libav-tools to ensure smooth updates
+  * {ffmpeg,libav-tools}.install: make files to install more explicit
+
+ -- Reinhard Tartler <siretart@tauware.de>  Mon, 25 Jun 2012 19:06:49 +0200
+
 libav (6:0.8.3-1) unstable; urgency=medium
 
   [ Andres Mejia ]
