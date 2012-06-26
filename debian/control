@@ -247,7 +247,8 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends}
 Breaks:
- libavcodec-extra-53
+ libavcodec-extra-53,
+ mplayer (<< 2:1.0~rc4.dfsg1+svn34540-1~)
 Description: Libav codec library
  Libav is a complete, cross-platform solution to decode, encode, record,
  convert and stream audio and video.
