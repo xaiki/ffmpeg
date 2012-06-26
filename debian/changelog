@@ -1,3 +1,9 @@
+libav (6:0.8.3-4) unstable; urgency=low
+
+  * Declare a 'Breaks' relationship against mplayer, Closes: #671934
+
+ -- Reinhard Tartler <siretart@tauware.de>  Tue, 26 Jun 2012 08:46:42 +0200
+
 libav (6:0.8.3-3) unstable; urgency=low
 
   * Install the shared flavor last; the binaries from the optimized flavor(s)
