@@ -486,7 +486,7 @@ Package: libavutil-extra-51
 Section: oldlibs
 Priority: extra
 Architecture: all
-Multi-Arch: foreign
+Multi-Arch: same
 Depends:
  libavutil51,
  ${misc:Depends},
@@ -531,7 +531,7 @@ Package: libavdevice-extra-53
 Section: oldlibs
 Priority: extra
 Architecture: all
-Multi-Arch: foreign
+Multi-Arch: same
 Depends:
  libavdevice53,
  ${misc:Depends},
@@ -546,7 +546,7 @@ Package: libavfilter-extra-2
 Section: oldlibs
 Priority: extra
 Architecture: all
-Multi-Arch: foreign
+Multi-Arch: same
 Depends:
  libavfilter2,
  ${misc:Depends},
@@ -561,7 +561,7 @@ Package: libpostproc-extra-52
 Section: oldlibs
 Priority: extra
 Architecture: all
-Multi-Arch: foreign
+Multi-Arch: same
 Depends:
  libpostproc52,
  ${misc:Depends},
@@ -576,7 +576,7 @@ Package: libavformat-extra-53
 Section: oldlibs
 Priority: extra
 Architecture: all
-Multi-Arch: foreign
+Multi-Arch: same
 Depends:
  libavformat53,
  ${misc:Depends},
@@ -591,7 +591,7 @@ Package: libswscale-extra-2
 Section: oldlibs
 Priority: extra
 Architecture: all
-Multi-Arch: foreign
+Multi-Arch: same
 Depends:
  libswscale2,
  ${misc:Depends},
