@@ -2,7 +2,7 @@ libav (6:0.8.3-4) unstable; urgency=low
 
   * Declare a 'Breaks' relationship against mplayer, Closes: #671934
   * Bug fix: "Multi-Arch: foreign libraries", thanks to Stepan Golosunov.
-    Mark the transitional packages as Multi-arch: same
+    Drop the Multi-arch field on the transitional packages
     to avoid that the dependency can be satisfied by packages of other
     architectures, which would break applications. Closes: #680613
 
