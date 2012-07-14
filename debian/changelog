@@ -1,10 +1,16 @@
 libav (6:0.8.3-4) unstable; urgency=low
 
+  [ Reinhard Tartler ]
   * Declare a 'Breaks' relationship against mplayer, Closes: #671934
   * Bug fix: "Multi-Arch: foreign libraries", thanks to Stepan Golosunov.
     Drop the Multi-arch field on the transitional packages
     to avoid that the dependency can be satisfied by packages of other
     architectures, which would break applications. Closes: #680613
+
+  [ Fabian Greffrath ]
+  * Mention qt-faststart in the long description (Closes: #681491).
+  * Install all debug symbols into libav-dbg (Closes: #680602).
+  * Do not run doxygen if it is not installed.
 
  -- Reinhard Tartler <siretart@tauware.de>  Mon, 09 Jul 2012 21:55:34 +0200
 
