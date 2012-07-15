@@ -1,7 +1,6 @@
-libav (6:0.8.3-4) unstable; urgency=low
+libav (6:0.8.3-5) unstable; urgency=low
 
   [ Reinhard Tartler ]
-  * Declare a 'Breaks' relationship against mplayer, Closes: #671934
   * Bug fix: "Multi-Arch: foreign libraries", thanks to Stepan Golosunov.
     Drop the Multi-arch field on the transitional packages
     to avoid that the dependency can be satisfied by packages of other
@@ -13,6 +12,12 @@ libav (6:0.8.3-4) unstable; urgency=low
   * Do not run doxygen if it is not installed.
 
  -- Reinhard Tartler <siretart@tauware.de>  Mon, 09 Jul 2012 21:55:34 +0200
+
+libav (6:0.8.3-4) unstable; urgency=low
+
+  * Declare a 'Breaks' relationship against mplayer, Closes: #671934
+
+ -- Reinhard Tartler <siretart@tauware.de>  Tue, 26 Jun 2012 08:46:42 +0200
 
 libav (6:0.8.3-3) unstable; urgency=low
 
