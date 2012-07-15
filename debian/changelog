@@ -2,7 +2,7 @@ libav (6:0.8.3-5) unstable; urgency=low
 
   [ Reinhard Tartler ]
   * Bug fix: "Multi-Arch: foreign libraries", thanks to Stepan Golosunov.
-    Drop the Multi-arch field on the transitional packages
+    Make the transitional libavfoo-extra-NN packages arch: all
     to avoid that the dependency can be satisfied by packages of other
     architectures, which would break applications. Closes: #680613
 
@@ -11,7 +11,7 @@ libav (6:0.8.3-5) unstable; urgency=low
   * Install all debug symbols into libav-dbg (Closes: #680602).
   * Do not run doxygen if it is not installed.
 
- -- Reinhard Tartler <siretart@tauware.de>  Mon, 09 Jul 2012 21:55:34 +0200
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 15 Jul 2012 23:13:42 +0200
 
 libav (6:0.8.3-4) unstable; urgency=low
 
