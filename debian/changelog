@@ -4,8 +4,10 @@ libav (6:0.8.3-6) unstable; urgency=low
     #683247.
   * Make ffmpeg-dbg 'arch: all' for consistency with the libav-extra-dbg
     package.
+  * Fix generation of shlibs file. (Closes: #679542)
+    Wrong make variables where used for the shlibs generation.
   
- -- Reinhard Tartler <siretart@tauware.de>  Sat, 04 Aug 2012 08:52:09 +0200
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 04 Aug 2012 09:03:54 +0200
 
 libav (6:0.8.3-5) unstable; urgency=low
 
