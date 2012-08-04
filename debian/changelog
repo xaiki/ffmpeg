@@ -1,15 +1,37 @@
+libav (6:0.8.3-6) unstable; urgency=low
+
+  * Clarify the changes in the 6:0.8.3-5 upload, as discussed in bug
+    #683247.
+  * Make ffmpeg-dbg 'arch: all' for consistency with the libav-extra-dbg
+    package.
+  
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 04 Aug 2012 08:52:09 +0200
+
 libav (6:0.8.3-5) unstable; urgency=low
 
   [ Reinhard Tartler ]
   * Bug fix: "Multi-Arch: foreign libraries", thanks to Stepan Golosunov.
-    Make the transitional libavfoo-extra-NN packages arch: all
-    to avoid that the dependency can be satisfied by packages of other
-    architectures, which would break applications. Closes: #680613
+    Make the transitional libavfoo-extra-NN packages 'arch: all' and
+    remove the 'Multi-Arch: foreign' fields to avoid that the dependency
+    can be satisfied by packages of other architectures, which would break
+    applications. Closes: #680613
+  * Make libav-extra-dbg 'arch: all'.  As empty, transitional package
+    without strict dependencies, we can safely ship it as arch:all
+    package.
 
   [ Fabian Greffrath ]
   * Mention qt-faststart in the long description (Closes: #681491).
   * Install all debug symbols into libav-dbg (Closes: #680602).
-  * Do not run doxygen if it is not installed.
+  * Do not run doxygen if it is not installed. This does not change anything
+    for regular builds, but helps with bootstrapping the package to new
+    architectures that may not have doxygen available yet.
+  * Fix up debian/changelog and tighten dependencies.
+  * Do not declare "ffmpeg" as virtual package (provided by libav-tools).
+    Instead, we provide it as transitional package for libav-tools. Note
+    the next upstream version will no longer provide neither an 'ffmpeg'
+    package, nor a /usr/bin/ffmpeg binary. This means that front-end
+    applications in Debian that previously used this binary needs to be
+    ported to /usr/bin/avconv for jessie.
 
  -- Reinhard Tartler <siretart@tauware.de>  Sun, 15 Jul 2012 23:13:42 +0200
 
