@@ -107,7 +107,7 @@ Description: Multimedia player, server, encoder and transcoder (transitional pac
 Package: ffmpeg-dbg
 Section: oldlibs
 Priority: extra
-Architecture: any
+Architecture: all
 Depends:
  libav-dbg,
  ${misc:Depends}
