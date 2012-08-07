@@ -1,3 +1,14 @@
+libav (6:0.8.3-7) unstable; urgency=low
+
+  * Also make libav-regular-dbg 'arch: all' for consistency with the other
+    debug packages.
+  * Fix generation of shlibs file not only for libavcodec*, but for all the
+    other library packages as well.
+  * Use xz compression for binary packages, thanks Ansgar Burchardt
+    (Closes: #683895).
+
+ -- Fabian Greffrath <fabian+debian@greffrath.com>  Tue, 07 Aug 2012 22:38:28 +0200
+
 libav (6:0.8.3-6) unstable; urgency=low
 
   * Clarify the changes in the 6:0.8.3-5 upload, as discussed in bug
