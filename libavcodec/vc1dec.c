@@ -5710,6 +5710,12 @@ static int vc1_decode_frame(AVCodecContext *avctx, void *data,
         mb_height = s->mb_height >> v->field_mode;
         for (i = 0; i <= n_slices; i++) {
             if (i > 0 &&  slices[i - 1].mby_start >= mb_height) {
+                if (v->field_mode <= 0) {
+                    av_log(v->s.avctx, AV_LOG_ERROR, "Slice %d starts beyond "
+                           "picture boundary (%d >= %d)\n", i,
+                           slices[i - 1].mby_start, mb_height);
+                    continue;
+                }
                 v->second_field = 1;
                 v->blocks_off   = s->mb_width  * s->mb_height << 1;
                 v->mb_off       = s->mb_stride * s->mb_height >> 1;
@@ -5812,6 +5818,7 @@ AVCodec ff_vc1_decoder = {
     .init           = vc1_decode_init,
     .close          = vc1_decode_end,
     .decode         = vc1_decode_frame,
+    .flush          = ff_mpeg_flush,
     .capabilities   = CODEC_CAP_DR1 | CODEC_CAP_DELAY,
     .long_name      = NULL_IF_CONFIG_SMALL("SMPTE VC-1"),
     .pix_fmts       = ff_hwaccel_pixfmt_list_420,
@@ -5827,6 +5834,7 @@ AVCodec ff_wmv3_decoder = {
     .init           = vc1_decode_init,
     .close          = vc1_decode_end,
     .decode         = vc1_decode_frame,
+    .flush          = ff_mpeg_flush,
     .capabilities   = CODEC_CAP_DR1 | CODEC_CAP_DELAY,
     .long_name      = NULL_IF_CONFIG_SMALL("Windows Media Video 9"),
     .pix_fmts       = ff_hwaccel_pixfmt_list_420,
