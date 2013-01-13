@@ -2866,7 +2866,7 @@ static int decode_slice_header(H264Context *h, H264Context *h0){
     h->mb_mbaff = 0;
     h->mb_aff_frame = 0;
     last_pic_structure = s0->picture_structure;
-    last_pic_dropable  = s->dropable;
+    last_pic_dropable  = s0->dropable;
     s->dropable        = h->nal_ref_idc == 0;
     if(h->sps.frame_mbs_only_flag){
         s->picture_structure= PICT_FRAME;
@@ -2888,6 +2888,11 @@ static int decode_slice_header(H264Context *h, H264Context *h0){
                    last_pic_structure, s->picture_structure);
             s->picture_structure = last_pic_structure;
             s->dropable          = last_pic_dropable;
+            return AVERROR_INVALIDDATA;
+        } else if (!s->current_picture_ptr) {
+            av_log(s->avctx, AV_LOG_ERROR,
+                   "unset current_picture_ptr on %d. slice\n",
+                   h0->current_slice + 1);
             return AVERROR_INVALIDDATA;
         }
     } else {
@@ -3116,8 +3121,13 @@ static int decode_slice_header(H264Context *h, H264Context *h0){
 
         if(num_ref_idx_active_override_flag){
             h->ref_count[0]= get_ue_golomb(&s->gb) + 1;
-            if(h->slice_type_nos==AV_PICTURE_TYPE_B)
+            if (h->ref_count[0] < 1)
+                return AVERROR_INVALIDDATA;
+            if (h->slice_type_nos == AV_PICTURE_TYPE_B) {
                 h->ref_count[1]= get_ue_golomb(&s->gb) + 1;
+                if (h->ref_count[1] < 1)
+                    return AVERROR_INVALIDDATA;
+            }
         }
 
         if (h->ref_count[0] > max_refs || h->ref_count[1] > max_refs) {
@@ -3760,9 +3770,10 @@ static int decode_slice(struct AVCodecContext *avctx, void *arg){
                         ff_er_add_slice(s, s->resync_mb_x, s->resync_mb_y, s->mb_x-1, s->mb_y, ER_MB_END&part_mask);
 
                         return 0;
-                    }else{
-                        ff_er_add_slice(s, s->resync_mb_x, s->resync_mb_y, s->mb_x, s->mb_y, ER_MB_END&part_mask);
-
+                    } else {
+                        ff_er_add_slice(s, s->resync_mb_x, s->resync_mb_y,
+                                        s->mb_x - 1, s->mb_y,
+                                        ER_MB_END & part_mask);
                         return -1;
                     }
                 }
@@ -4007,6 +4018,7 @@ static int decode_nal_units(H264Context *h, const uint8_t *buf, int buf_size){
             hx->inter_gb_ptr= &hx->inter_gb;
 
             if(hx->redundant_pic_count==0 && hx->intra_gb_ptr && hx->s.data_partitioning
+               && s->current_picture_ptr
                && s->context_initialized
                && (avctx->skip_frame < AVDISCARD_NONREF || hx->nal_ref_idc)
                && (avctx->skip_frame < AVDISCARD_BIDIR  || hx->slice_type_nos!=AV_PICTURE_TYPE_B)
@@ -4029,9 +4041,16 @@ static int decode_nal_units(H264Context *h, const uint8_t *buf, int buf_size){
                 ff_h264_decode_seq_parameter_set(h);
             }
 
-            if (s->flags& CODEC_FLAG_LOW_DELAY ||
-                (h->sps.bitstream_restriction_flag && !h->sps.num_reorder_frames))
-                s->low_delay=1;
+            if (s->flags & CODEC_FLAG_LOW_DELAY ||
+                (h->sps.bitstream_restriction_flag &&
+                 !h->sps.num_reorder_frames)) {
+                if (s->avctx->has_b_frames > 1 || h->delayed_pic[0])
+                    av_log(avctx, AV_LOG_WARNING, "Delayed frames seen "
+                           "reenabling low delay requires a codec "
+                           "flush.\n");
+                else
+                    s->low_delay = 1;
+            }
 
             if(avctx->has_b_frames < 2)
                 avctx->has_b_frames= !s->low_delay;
