@@ -1,8 +1,13 @@
-libav (6:0.8.5-2) UNRELEASED; urgency=low
+libav (6:0.8.6-1) unstable; urgency=low
 
-  * Prepare new upload
+  * Imported Upstream version 0.8.6, new releases fixes:
+    - h264: check for luma and chroma bit depth being equal (CVE-2013-2277)
+    - iff: validate CMAP palette size (CVE-2013-2495)
+    - msrledec: convert to bytestream2 API and add proper bounds checking (CVE-2013-2496)
+    - vorbisdec: Error on bark_map_size equal to 0 (CVE-2013-0894)
+    - Thus, closes: #703200
 
- -- Reinhard Tartler <siretart@tauware.de>  Thu, 17 Jan 2013 22:51:27 +0100
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 24 Mar 2013 07:35:51 +0100
 
 libav (6:0.8.5-1) unstable; urgency=low
 
